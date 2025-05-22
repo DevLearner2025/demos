@@ -1,0 +1,3 @@
+SELECT * FROM [dam:Asset] AS asset 
+WHERE ISDESCENDANTNODE(asset, '/content/dam/wknd-shared') 
+AND asset.[jcr:content/contentFragment] = 'true'
