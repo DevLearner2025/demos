@@ -1,3 +1,5 @@
 SELECT * FROM [dam:Asset] AS asset 
 WHERE ISDESCENDANTNODE(asset, '/content/dam/wknd-shared') 
 AND asset.[jcr:content/contentFragment] = 'true'
+AND asset.[jcr:created] >= CAST('2021-04-22T00:00:00.000Z' AS DATE)
+AND asset.[jcr:created] <= CAST('2025-05-22T00:00:00.000Z' AS DATE)
