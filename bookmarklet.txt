@@ -1,0 +1,1 @@
+javascript:(function(){var e=document.body.innerText,t=new Blob([e],{type:"text/plain"}),n=URL.createObjectURL(t),o=document.createElement("a");o.download=document.title+".txt",o.href=n,o.click(),URL.revokeObjectURL(n)})();
