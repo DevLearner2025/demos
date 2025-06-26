@@ -1,0 +1,51 @@
+global.vars
+
+Define CACHE_GRAPHQL_PERSISTED_QUERIES
+
+
+Virtual Host Configuration
+
+FileETag Digest
+
+filters.any
+
+
+# Allow GraphQL endpoint requests
+/0060 { /type "allow" /method '(POST|OPTIONS)' /url "/content/_cq_graphql/*/endpoint.json" }
+
+# Allow GraphQL persisted query requests
+/0061 { /type "allow" /method '(GET|POST|OPTIONS)' /url "/graphql/execute.json*" }
+
+
+farm.any
+
+/cache {
+    /docroot "/mnt/var/www/html"
+    /rules {
+        # Allow caching of GraphQL persisted queries
+        /0100 {
+            /glob "/graphql/execute.json*"
+            /type "allow"
+        }
+    }
+}
+
+
+clientheaders.any
+
+# Do NOT include "Origin" header in this file
+# The Origin header should be handled at the Dispatcher level
+
+
+
+
+
+
+
+GraphQL persisted queries use TTL (Time To Live) for cache control:
+
+Default TTL is 7200 seconds (2 hours) for Dispatcher and CDN caches
+
+This can be configured using s-maxage cache control headers
+
+The TTL setting applies to both Dispatcher-level and CDN-level caching
