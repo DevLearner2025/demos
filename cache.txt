@@ -1,3 +1,5 @@
+https://events.teams.microsoft.com/event/04f70202-48dc-4ddb-954b-5b60fad1b693@fa7b1b5a-7b34-4387-94ae-d2c178decee1
+
 global.vars
 
 Define CACHE_GRAPHQL_PERSISTED_QUERIES
